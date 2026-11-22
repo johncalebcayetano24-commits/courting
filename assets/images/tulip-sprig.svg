@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 44" fill="none" role="img" aria-hidden="true">
+  <!-- Delicate horizontal hairline stems -->
+  <path d="M12 22 C48 22 76 22 106 22" stroke="#DEC5CD" stroke-width="1" stroke-linecap="round"/>
+  <path d="M154 22 C184 22 212 22 248 22" stroke="#DEC5CD" stroke-width="1" stroke-linecap="round"/>
+  <!-- Tiny botanical leaves flanking center -->
+  <path d="M114 22 C107 17 101 16 96 18 C101 21 107 23 114 22 Z" fill="#9AA990" opacity="0.78"/>
+  <path d="M114 22 C107 27 101 28 96 26 C101 23 107 21 114 22 Z" fill="#82927A" opacity="0.68"/>
+  <path d="M146 22 C153 17 159 16 164 18 C159 21 153 23 146 22 Z" fill="#9AA990" opacity="0.78"/>
+  <path d="M146 22 C153 27 159 28 164 26 C159 23 153 21 146 22 Z" fill="#82927A" opacity="0.68"/>
+  <!-- Miniature central tulip bud -->
+  <path d="M130 9 C125 14 124.5 22 130 28 C135.5 22 135 14 130 9 Z" fill="#C98A99"/>
+  <path d="M130 28 C122.5 27 120 20 122.5 13 C126 15.5 128 21 130 28 Z" fill="#E9BCC8"/>
+  <path d="M130 28 C137.5 27 140 20 137.5 13 C134 15.5 132 21 130 28 Z" fill="#DDA0B1"/>
+  <path d="M130 28 L130 36" stroke="#7D8C75" stroke-width="1.4" stroke-linecap="round"/>
+  <!-- Subtle pearl dots -->
+  <circle cx="82" cy="22" r="1.6" fill="#D5A6B4" opacity="0.7"/>
+  <circle cx="178" cy="22" r="1.6" fill="#D5A6B4" opacity="0.7"/>
+</svg>

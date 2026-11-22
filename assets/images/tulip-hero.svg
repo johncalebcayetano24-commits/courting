@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220" fill="none" role="img" aria-label="Delicate blush tulip illustration">
+  <defs>
+    <radialGradient id="softHalo" cx="50%" cy="38%" r="48%">
+      <stop offset="0%" stop-color="#F6DCE4" stop-opacity="0.65"/>
+      <stop offset="70%" stop-color="#F6DCE4" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#FCF8F3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="centerPetal" x1="90" y1="22" x2="90" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F4CCD7"/>
+      <stop offset="55%" stop-color="#D794A5"/>
+      <stop offset="100%" stop-color="#AD6477"/>
+    </linearGradient>
+    <linearGradient id="leftPetal" x1="56" y1="44" x2="88" y2="114" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FCE4EB"/>
+      <stop offset="55%" stop-color="#E8B4C3"/>
+      <stop offset="100%" stop-color="#C98294"/>
+    </linearGradient>
+    <linearGradient id="rightPetal" x1="124" y1="44" x2="92" y2="114" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F9D7E1"/>
+      <stop offset="55%" stop-color="#DFA1B2"/>
+      <stop offset="100%" stop-color="#BA7285"/>
+    </linearGradient>
+    <linearGradient id="leafLeft" x1="48" y1="126" x2="90" y2="196" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A8B79E"/>
+      <stop offset="100%" stop-color="#6F7F67"/>
+    </linearGradient>
+    <linearGradient id="leafRight" x1="132" y1="132" x2="90" y2="196" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#96A68D"/>
+      <stop offset="100%" stop-color="#63725C"/>
+    </linearGradient>
+    <linearGradient id="stemGrad" x1="90" y1="108" x2="88" y2="206" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8A9B80"/>
+      <stop offset="100%" stop-color="#65755D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Subtle atmospheric blush glow -->
+  <circle cx="90" cy="84" r="76" fill="url(#softHalo)"/>
+
+  <!-- Slender organically curved stem -->
+  <path d="M90 110 C90 140 87 172 89.5 204" stroke="url(#stemGrad)" stroke-width="3.2" stroke-linecap="round"/>
+
+  <!-- Graceful arching botanical leaves -->
+  <path d="M89 194 C64 182 47 156 46 122 C63 136 78 159 89 194 Z" fill="url(#leafLeft)" opacity="0.88"/>
+  <path d="M89 194 C71 174 59 152 51 129" stroke="#FCF8F3" stroke-width="1" stroke-linecap="round" opacity="0.38"/>
+
+  <path d="M89.5 186 C113 175 129 153 133 128 C116 141 101 160 89.5 186 Z" fill="url(#leafRight)" opacity="0.82"/>
+  <path d="M89.5 186 C106 168 119 150 127 134" stroke="#FCF8F3" stroke-width="0.9" stroke-linecap="round" opacity="0.32"/>
+
+  <!-- Back subtle inner petals for botanical depth -->
+  <path d="M77 44 C72 56 72 80 86 108 C80 82 81 58 77 44 Z" fill="#C27A8D" opacity="0.55"/>
+  <path d="M103 44 C108 56 108 80 94 108 C100 82 99 58 103 44 Z" fill="#B86F82" opacity="0.55"/>
+
+  <!-- Center tulip petal -->
+  <path d="M90 24 C70 44 66 84 90 112 C114 84 110 44 90 24 Z" fill="url(#centerPetal)"/>
+  <path d="M90 27 C81 48 80 80 90 108" stroke="#FCF8F3" stroke-width="1.15" stroke-linecap="round" opacity="0.36"/>
+
+  <!-- Outer left cupped petal -->
+  <path d="M90 112 C62 108 48 80 57 42 C72 54 83 78 90 112 Z" fill="url(#leftPetal)"/>
+  <path d="M58 45 C68 58 77 80 86 108" stroke="#FCF8F3" stroke-width="1" stroke-linecap="round" opacity="0.42"/>
+  <path d="M90 112 C62 108 48 80 57 42" stroke="#B77083" stroke-width="0.75" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- Outer right cupped petal -->
+  <path d="M90 112 C118 108 132 80 123 42 C108 54 97 78 90 112 Z" fill="url(#rightPetal)"/>
+  <path d="M122 45 C112 58 103 80 94 108" stroke="#FCF8F3" stroke-width="0.95" stroke-linecap="round" opacity="0.32"/>
+  <path d="M90 112 C118 108 132 80 123 42" stroke="#A65E71" stroke-width="0.75" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- Delicate floating shimmer dots -->
+  <circle cx="44" cy="54" r="2.2" fill="#E3B3C0" opacity="0.65"/>
+  <circle cx="139" cy="64" r="1.8" fill="#C98A99" opacity="0.55"/>
+  <circle cx="128" cy="30" r="1.5" fill="#E8C6D0" opacity="0.75"/>
+</svg>

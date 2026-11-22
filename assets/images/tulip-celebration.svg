@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 210" fill="none" role="img" aria-label="Bouquet of three blush tulips tied with a muted burgundy ribbon">
+  <defs>
+    <radialGradient id="bouquetGlow" cx="50%" cy="42%" r="48%">
+      <stop offset="0%" stop-color="#F7DDE5" stop-opacity="0.72"/>
+      <stop offset="72%" stop-color="#F7DDE5" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#FCF8F3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="petalMain" x1="110" y1="22" x2="110" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F6D1DC"/>
+      <stop offset="55%" stop-color="#D790A3"/>
+      <stop offset="100%" stop-color="#9F5468"/>
+    </linearGradient>
+    <linearGradient id="petalSoft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCE7EE"/>
+      <stop offset="100%" stop-color="#D38D9F"/>
+    </linearGradient>
+    <linearGradient id="petalRose" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5CBD8"/>
+      <stop offset="100%" stop-color="#B96C80"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="110" cy="92" r="84" fill="url(#bouquetGlow)"/>
+
+  <!-- Three gracefully crossed stems -->
+  <path d="M68 104 C82 134 98 158 122 190" stroke="#7E8E75" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M152 104 C138 134 122 158 98 190" stroke="#75856D" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M110 92 C110 128 110 162 110 194" stroke="#6E7E66" stroke-width="2.9" stroke-linecap="round"/>
+
+  <!-- Botanical leaves -->
+  <path d="M104 164 C74 152 54 134 46 108 C68 120 88 139 104 164 Z" fill="#9EAD94" opacity="0.82"/>
+  <path d="M116 164 C146 152 166 134 174 108 C152 120 132 139 116 164 Z" fill="#8B9B82" opacity="0.78"/>
+  <path d="M108 156 C96 134 92 114 96 96 C106 114 110 134 108 156 Z" fill="#A6B59C" opacity="0.65"/>
+
+  <!-- Left tulip (tilted gently) -->
+  <g transform="translate(68 78) rotate(-22)">
+    <path d="M0 -34 C-13 -19 -15 8 0 26 C15 8 13 -19 0 -34 Z" fill="url(#petalRose)"/>
+    <path d="M0 26 C-18 23 -27 4 -21 -21 C-11 -13 -4 4 0 26 Z" fill="url(#petalSoft)"/>
+    <path d="M0 26 C18 23 27 4 21 -21 C11 -13 4 4 0 26 Z" fill="#DF9DB0"/>
+  </g>
+
+  <!-- Right tulip (tilted gently) -->
+  <g transform="translate(152 78) rotate(22)">
+    <path d="M0 -34 C-13 -19 -15 8 0 26 C15 8 13 -19 0 -34 Z" fill="url(#petalRose)"/>
+    <path d="M0 26 C-18 23 -27 4 -21 -21 C-11 -13 -4 4 0 26 Z" fill="#E3A5B7"/>
+    <path d="M0 26 C18 23 27 4 21 -21 C11 -13 4 4 0 26 Z" fill="url(#petalSoft)"/>
+  </g>
+
+  <!-- Center hero tulip -->
+  <g transform="translate(110 62)">
+    <path d="M0 -38 C-16 -20 -18 11 0 32 C18 11 16 -20 0 -38 Z" fill="url(#petalMain)"/>
+    <path d="M0 32 C-22 28 -32 6 -25 -24 C-13 -14 -5 6 0 32 Z" fill="url(#petalSoft)"/>
+    <path d="M0 32 C22 28 32 6 25 -24 C13 -14 5 6 0 32 Z" fill="#DCA0B1"/>
+    <path d="M0 -34 C-6 -16 -6 10 0 28" stroke="#FCF8F3" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+  </g>
+
+  <!-- Muted burgundy satin ribbon bow tying the stems -->
+  <path d="M97 152 C104 156 116 156 123 152" stroke="#6B2D3E" stroke-width="4.2" stroke-linecap="round"/>
+  <path d="M108 154 C94 146 84 152 88 162 C92 168 103 163 108 155 Z" fill="#7D374A" opacity="0.92"/>
+  <path d="M112 154 C126 146 136 152 132 162 C128 168 117 163 112 155 Z" fill="#6B2D3E" opacity="0.92"/>
+  <path d="M108 156 C103 168 96 177 90 183" stroke="#6B2D3E" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M112 156 C117 168 124 177 130 183" stroke="#7D374A" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="110" cy="154.5" r="3.4" fill="#5A2331"/>
+
+  <!-- Subtle floating tiny blush heart accents -->
+  <path d="M40 50 C40 47.8 38.2 46 36 46 C34.5 46 33.2 46.9 32.5 48.2 C31.8 46.9 30.5 46 29 46 C26.8 46 25 47.8 25 50 C25 54 32.5 58.2 32.5 58.2 C32.5 58.2 40 54 40 50 Z" fill="#D998AA" opacity="0.6"/>
+  <path d="M192 58 C192 56.3 190.6 55 189 55 C187.8 55 186.8 55.7 186.2 56.7 C185.6 55.7 184.6 55 183.4 55 C181.8 55 180.4 56.3 180.4 58 C180.4 61.1 186.2 64.4 186.2 64.4 C186.2 64.4 192 61.1 192 58 Z" fill="#C98A99" opacity="0.55"/>
+</svg>

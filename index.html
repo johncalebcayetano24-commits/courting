@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="A little note made thoughtfully for Zey.">
+  <meta name="theme-color" content="#FCF8F3">
+  <title>A Little Question for Zey 🌷</title>
+
+  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+
+  <!-- Elegant serif + clean sans-serif typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Official Supabase JavaScript Client v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="./assets/js/supabase.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
+</head>
+<body>
+  <!-- Subtle ambient glows & lightweight floating petal canvas -->
+  <div class="ambient-backdrop" aria-hidden="true">
+    <div class="ambient-glow ambient-glow--top"></div>
+    <div class="ambient-glow ambient-glow--bottom"></div>
+  </div>
+  <canvas id="petal-canvas" class="petal-canvas" aria-hidden="true"></canvas>
+
+  <!-- Romantic Piano Audio Element (starts only after user interaction) -->
+  <audio id="bg-music" preload="auto" loop playsinline>
+    <source src="./assets/music/romantic-piano.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Minimalist Floating Music Control -->
+  <aside class="music-control" aria-label="Background music controls">
+    <button
+      type="button"
+      id="music-toggle"
+      class="music-toggle"
+      aria-label="Play romantic piano music"
+      aria-pressed="false"
+      title="Play or pause piano music"
+    >
+      <span class="music-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l11-2v13"/>
+          <circle cx="6.5" cy="18" r="2.5"/>
+          <circle cx="17.5" cy="16" r="2.5"/>
+        </svg>
+      </span>
+      <span class="music-bars" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span id="music-status-label" class="music-label">Music</span>
+    </button>
+
+    <div class="music-volume-wrap" id="music-volume-wrap">
+      <button
+        type="button"
+        id="volume-toggle"
+        class="volume-icon-btn"
+        aria-label="Adjust volume"
+        aria-expanded="false"
+        title="Volume"
+      >
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+      </button>
+      <div class="volume-slider-box" id="volume-slider-box">
+        <label for="music-volume" class="sr-only">Music volume</label>
+        <input
+          type="range"
+          id="music-volume"
+          class="volume-slider"
+          min="0"
+          max="1"
+          step="0.05"
+          value="0.45"
+          aria-label="Music volume"
+        >
+      </div>
+    </div>
+  </aside>
+
+  <main class="page-shell">
+    <!-- ================================================================
+         VIEW 1: LANDING SCREEN
+    ================================================================ -->
+    <section
+      id="view-landing"
+      class="view view--active landing-view"
+      aria-labelledby="landing-heading"
+    >
+      <article class="stationery-card stationery-card--landing">
+        <div class="stationery-inner">
+          <figure class="tulip-figure tulip-figure--hero">
+            <img
+              src="./assets/images/tulip-hero.svg"
+              alt="A delicate blush tulip illustration"
+              width="144"
+              height="176"
+              class="tulip-img tulip-float"
+            >
+          </figure>
+
+          <p class="eyebrow">A little note, just for you</p>
+
+          <h1 id="landing-heading" class="landing-title">
+            Hi, Zey! <span class="emoji-gentle" aria-hidden="true">🌷</span>
+          </h1>
+
+          <p class="landing-lead">I made something little for you.</p>
+
+          <p class="landing-copy">
+            Before anything else, I just want you to know how much I appreciate your presence in my life.
+          </p>
+
+          <div class="landing-actions">
+            <button type="button" id="btn-open-surprise" class="btn btn--primary btn--hero">
+              <span>Open my little surprise</span>
+              <svg class="btn-arrow" viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10h12"/>
+                <path d="M11 5l5 5-5 5"/>
+              </svg>
+            </button>
+            <p class="sound-hint">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 18V5l11-2v13"/>
+                <circle cx="6.5" cy="18" r="2.5"/>
+                <circle cx="17.5" cy="16" r="2.5"/>
+              </svg>
+              <span>Soft piano music plays once opened</span>
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================================================================
+         VIEW 2: MAIN PERSONAL MESSAGE & QUESTION
+    ================================================================ -->
+    <section
+      id="view-letter"
+      class="view letter-view"
+      aria-labelledby="letter-heading"
+      hidden
+    >
+      <article class="stationery-card stationery-card--letter">
+        <div class="stationery-inner">
+          <div class="letter-ornament reveal-item" style="--delay: 0.04s;">
+            <img
+              src="./assets/images/tulip-sprig.svg"
+              alt=""
+              width="210"
+              height="36"
+              class="sprig-img"
+              aria-hidden="true"
+            >
+          </div>
+
+          <div class="letter-body">
+            <h2 id="letter-heading" class="letter-salutation reveal-item" style="--delay: 0.10s;" tabindex="-1">
+              Hi, Zey.
+            </h2>
+
+            <p class="letter-paragraph reveal-item" style="--delay: 0.16s;">
+              I know this might be a little unexpected, but there's something I've been wanting to ask you.
+            </p>
+
+            <p class="letter-paragraph reveal-item" style="--delay: 0.22s;">
+              I genuinely enjoy getting to know you. I appreciate our conversations, the random laughs, and even the simplest moments we share.
+            </p>
+
+            <p class="letter-paragraph reveal-item" style="--delay: 0.28s;">
+              I don't want to rush anything. I just want to take a step forward and show you that my intentions are genuine.
+            </p>
+
+            <p class="letter-pause reveal-item" style="--delay: 0.35s;">
+              So, Zey...
+            </p>
+          </div>
+
+          <div class="question-block reveal-item" style="--delay: 0.42s;">
+            <div class="question-divider" aria-hidden="true">
+              <span></span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
+                <path d="M12 20.5C12 20.5 4.5 15.8 4.5 9.8C4.5 7.2 6.5 5.2 9 5.2C10.5 5.2 11.4 6 12 7C12.6 6 13.5 5.2 15 5.2C17.5 5.2 19.5 7.2 19.5 9.8C19.5 15.8 12 20.5 12 20.5Z" stroke="#C98A99" stroke-width="1.5" fill="#F9EBF0"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <h3 class="main-question">
+              Would you allow me to <em>court you</em>?
+            </h3>
+
+            <p class="question-subtitle">
+              I'd love to get to know you more, with genuine intentions and at a pace we're both comfortable with.
+            </p>
+          </div>
+
+          <!-- Three Equal, Functional, Respectful Response Options -->
+          <div class="response-options reveal-item" style="--delay: 0.50s;" role="group" aria-label="Your response options">
+            <button type="button" class="btn btn--choice btn--choice-yes" data-answer="YES">
+              <span>YES! 💗</span>
+            </button>
+            <button type="button" class="btn btn--choice btn--choice-notyet" data-answer="NOT_YET">
+              <span>NOT YET</span>
+            </button>
+            <button type="button" class="btn btn--choice btn--choice-no" data-answer="NO">
+              <span>NO</span>
+            </button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================================================================
+         VIEW 3: TAILORED RESPONSE & SUBMISSION VIEW
+    ================================================================ -->
+    <section
+      id="view-response"
+      class="view response-view"
+      aria-live="polite"
+      hidden
+    >
+      <article class="stationery-card stationery-card--response">
+        <div class="stationery-inner">
+
+          <!-- BRANCH 1: YES -->
+          <div id="panel-yes" class="response-panel" hidden>
+            <figure class="tulip-figure tulip-figure--celebration">
+              <img
+                src="./assets/images/tulip-celebration.svg"
+                alt="A small bouquet of blush tulips tied with a burgundy ribbon"
+                width="168"
+                height="160"
+                class="tulip-img tulip-float"
+              >
+            </figure>
+
+            <div class="celebration-exclamations">
+              <h2 id="heading-yes" class="celebration-title" tabindex="-1">
+                LAHHHHH WEHHH BA??? 😭💗
+              </h2>
+              <p class="celebration-subtitle">
+                HAHAHAHA WAIT LANG, KINIKILIG AKO!
+              </p>
+            </div>
+
+            <p class="response-heartfelt">
+              Thank you, Zey, for giving me this opportunity. I promise to make this journey meaningful, to respect you, and to genuinely get to know you better.
+            </p>
+
+            <form id="form-yes" class="response-form" novalidate>
+              <div class="form-field form-field--highlight">
+                <label for="courtship-date" class="field-label">
+                  When did you decide to give me this chance?
+                </label>
+                <div class="date-input-row">
+                  <input
+                    type="date"
+                    id="courtship-date"
+                    name="selected_courtship_date"
+                    class="field-input field-input--date"
+                    required
+                  >
+                  <button type="button" id="btn-set-today" class="btn-chip">Today</button>
+                </div>
+                <p id="date-preview" class="field-helper" aria-live="polite"></p>
+              </div>
+
+              <div class="form-field">
+                <div class="label-row">
+                  <label for="yes-message" class="field-label">
+                    Add a little personal message
+                  </label>
+                  <span class="optional-tag">Optional</span>
+                </div>
+                <textarea
+                  id="yes-message"
+                  name="personal_message"
+                  class="field-textarea"
+                  rows="4"
+                  maxlength="1000"
+                  placeholder="Anything you'd like to say to me..."
+                ></textarea>
+                <div class="field-meta">
+                  <span class="field-hint">Completely optional — write as little or as much as you like.</span>
+                  <span class="char-counter" data-for="yes-message">0 / 1000</span>
+                </div>
+              </div>
+
+              <div class="form-alert" id="error-yes" role="alert" hidden></div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--submit" data-submit-for="YES">
+                  <span class="btn-label">Save &amp; Send My Answer 💗</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- BRANCH 2: NOT YET -->
+          <div id="panel-not-yet" class="response-panel" hidden>
+            <div class="letter-ornament">
+              <img
+                src="./assets/images/tulip-sprig.svg"
+                alt=""
+                width="190"
+                height="32"
+                class="sprig-img"
+                aria-hidden="true"
+              >
+            </div>
+
+            <h2 id="heading-not-yet" class="gentle-title" tabindex="-1">
+              AWWW, that's okay, Zey. No pressure, promise.
+            </h2>
+
+            <p class="response-heartfelt">
+              Take all the time you need. I don't want you to feel rushed. What matters to me is that you're comfortable and honest about how you feel.
+            </p>
+
+            <form id="form-not-yet" class="response-form" novalidate>
+              <div class="form-field">
+                <div class="label-row">
+                  <label for="not-yet-reason" class="field-label">
+                    Is there anything you'd like me to understand?
+                  </label>
+                  <span class="optional-tag">Optional</span>
+                </div>
+                <textarea
+                  id="not-yet-reason"
+                  name="reason"
+                  class="field-textarea"
+                  rows="4"
+                  maxlength="1000"
+                  placeholder="You can leave this blank or share whatever is on your mind..."
+                ></textarea>
+                <div class="field-meta">
+                  <span class="field-hint">No obligation at all — feel free to submit with or without a note.</span>
+                  <span class="char-counter" data-for="not-yet-reason">0 / 1000</span>
+                </div>
+              </div>
+
+              <div class="form-alert" id="error-not-yet" role="alert" hidden></div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--submit" data-submit-for="NOT_YET">
+                  <span class="btn-label">Send My Response</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- BRANCH 3: NO -->
+          <div id="panel-no" class="response-panel" hidden>
+            <div class="letter-ornament">
+              <img
+                src="./assets/images/tulip-sprig.svg"
+                alt=""
+                width="190"
+                height="32"
+                class="sprig-img"
+                aria-hidden="true"
+              >
+            </div>
+
+            <h2 id="heading-no" class="gentle-title" tabindex="-1">
+              That's okay, Zey. Thank you for being honest with me.
+            </h2>
+
+            <p class="response-heartfelt">
+              Although I might feel a little sad, I respect your decision. I appreciate you and I don't want you to feel obligated to say yes.
+            </p>
+
+            <form id="form-no" class="response-form" novalidate>
+              <div class="form-field">
+                <div class="label-row">
+                  <label for="no-reason" class="field-label">
+                    If you're comfortable sharing, is there anything you'd like me to understand?
+                  </label>
+                  <span class="optional-tag">Optional</span>
+                </div>
+                <textarea
+                  id="no-reason"
+                  name="reason"
+                  class="field-textarea"
+                  rows="4"
+                  maxlength="1000"
+                  placeholder="You don't need to explain — only share if you want to..."
+                ></textarea>
+                <div class="field-meta">
+                  <span class="field-hint">Completely optional. Your honesty is already more than enough.</span>
+                  <span class="char-counter" data-for="no-reason">0 / 1000</span>
+                </div>
+              </div>
+
+              <div class="form-alert" id="error-no" role="alert" hidden></div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--submit" data-submit-for="NO">
+                  <span class="btn-label">Send My Response</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Back link (hidden/disabled once submitting or submitted) -->
+          <div class="back-row" id="response-back-row">
+            <button type="button" id="btn-back-to-letter" class="btn-link">
+              &larr; Choose a different response
+            </button>
+          </div>
+
+        </div>
+      </article>
+    </section>
+
+    <!-- ================================================================
+         VIEW 4: CONFIRMED SUBMISSION SCREEN (Only after Supabase success)
+    ================================================================ -->
+    <section
+      id="view-confirmation"
+      class="view confirmation-view"
+      aria-labelledby="confirmation-heading"
+      hidden
+    >
+      <article class="stationery-card stationery-card--confirmation">
+        <div class="stationery-inner">
+          <div class="confirmation-icon" id="confirmation-visual">
+            <img
+              src="./assets/images/tulip-hero.svg"
+              alt="Delicate blush tulip illustration"
+              width="104"
+              height="128"
+              class="tulip-img tulip-float"
+            >
+          </div>
+
+          <p class="confirmation-badge">
+            <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="4 10.5 8 14.5 16 6"/>
+            </svg>
+            <span>Response received</span>
+          </p>
+
+          <h2 id="confirmation-heading" class="confirmation-title" tabindex="-1">
+            Thank you, Zey.
+          </h2>
+
+          <p id="confirmation-message" class="confirmation-copy"></p>
+
+          <div id="confirmation-details" class="confirmation-summary" hidden>
+            <div class="summary-row" id="summary-date-row" hidden>
+              <span class="summary-label">Date you chose</span>
+              <span class="summary-value" id="summary-date-value"></span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Recorded on</span>
+              <span class="summary-value" id="summary-timestamp-value"></span>
+            </div>
+          </div>
+
+          <p class="confirmation-closing">
+            You can keep listening to the piano for as long as you'd like.
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made thoughtfully, with genuine intentions &middot; for Zey 🌷</p>
+  </footer>
+</body>
+</html>
